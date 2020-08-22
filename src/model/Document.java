@@ -1,18 +1,18 @@
 package model;
 
 public enum Document{
-	TI(true),
-	CC(false),
-	PP(false),
-	CE(false);
+	TI(false),
+	CC(true),
+	PP(true),
+	CE(true);
 	
-	private boolean underAge;
-	Document(boolean underAge) {
-		this.underAge = underAge;
+	private boolean age;
+	Document(boolean age) {
+		this.age = age;
 	}
 	
 	public boolean getAge() {
-		return underAge;
+		return age;
 	}
 
 }
