@@ -18,14 +18,16 @@ class TestRegisterVisitor {
 	}
 	
 	@Test
-	void testRregisterVisitors() {
+	void RregisterVisitorsTest() {
 //******************************* test for an adult with pair id (both not registered and registered) *****************************************
 		setUpStageOne();
 		Document documentTest = Document.valueOf("CC");
 		try {
 			minimarketTest.registerVisitors(documentTest, 1886169712 );
+			assertEquals(1886169712, minimarketTest.getEntries().get(0).getIdNumber(),"the person was not succesfully registered.");
 			assertEquals(1, minimarketTest.getTotalVisitors(),"The visitor was registered"
 					+ " but was not added to the visitors count.");
+		
 			
 		} catch (InvalidNumberException invalidNumberException) {
 			if (LocalDate.now().getDayOfMonth()%2 == 0) {
@@ -45,6 +47,7 @@ class TestRegisterVisitor {
 		documentTest = Document.valueOf("PP");
 		try {
 			minimarketTest.registerVisitors(documentTest, 1886169713 );
+			assertEquals(1886169712, minimarketTest.getEntries().get(0).getIdNumber(),"the person was not succesfully registered.");
 			assertEquals(1, minimarketTest.getTotalVisitors(),"The visitor was registered"
 					+ " but was not added to the visitors count.");
 			

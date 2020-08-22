@@ -58,5 +58,7 @@ public class Store {
 		return picoYCedula;
 	}
 	
-	
+	public ArrayList<Person> getEntries() {
+		return entries;
+	}
 }
