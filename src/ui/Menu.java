@@ -31,11 +31,12 @@ public class Menu {
 			break;
 			
 		case 2:
-			runOptionTwo();
+			System.out.println("\n"+ ASTERISKS);
+			System.out.println("total visitors = "+ minimarket.getTotalVisitors());
 			break;
 			
 		case 3:
-			runOptionTree();
+			exit = true;
 			break;
 
 		default:
@@ -43,6 +44,10 @@ public class Menu {
 			System.out.println("Not a valid option. \nPlease only type the number next to the option (1,2 or 3)\n-");
 			break;
 		}
+		
+		System.out.println(ASTERISKS);
+		System.out.println("press any key to continue.");
+		in.nextLine();
 		return exit;
 	}
 	
@@ -61,6 +66,7 @@ public class Menu {
 			try {
 				
 				String documentType = in.nextLine();
+				System.out.println(documentType.toUpperCase()+"******************");
 				document = Document.valueOf(documentType.toUpperCase());
 				
 				System.out.println("\n"+ASTERISKS
@@ -71,12 +77,16 @@ public class Menu {
 				
 			} catch (NumberFormatException numberFormatException) {
 				System.out.println("\n"+ASTERISKS);
-				System.err.println("*Exception*\n" + numberFormatException);
+				
+				//System.err.println("*Exception*\n" + numberFormatException);
+				
 				System.out.println("Invalid id number. \nPlease enter a valid id number");
 				
 			} catch (IllegalArgumentException illegalArgumentException) {
 				System.out.println("\n"+ASTERISKS);
-				System.err.println("*Exception*\n" + illegalArgumentException);
+				
+				//System.err.println("*Exception*\n" + illegalArgumentException);
+				
 				System.out.println("Invalid id type. \nplease enter one of the shown options(TI,CC,PP or CE)");
 			}
 		} while (!exit);
@@ -87,23 +97,15 @@ public class Menu {
 			
 		} catch (InvalidNumberException invalidNumberException) {
 			System.out.println("\n"+ASTERISKS);
-			System.err.println("*Exception*\n" + invalidNumberException);
+			//System.err.println("*Exception*\n" + invalidNumberException);
 			System.out.println("The id number doesnt match with todays pico y cedula. \n the visitor data was not saved.");
 			
 		}catch (InvalidTypeException invalidTypeException) {
 			System.out.println("\n"+ASTERISKS);
-			System.err.println("*Exception*\n" + invalidTypeException);
+			//System.err.println("*Exception*\n" + invalidTypeException);
 			System.out.println("The person must be an adult(+18) to enter the store. \n the visitor data was not saved.");
 			
 		}
-		
-	}
-	
-	private void runOptionTwo() {
-		
-	}
-	
-	private void runOptionTree() {
 		
 	}
 	
@@ -118,12 +120,15 @@ public class Menu {
 				option = Integer.parseInt(in.nextLine());
 			} catch (NumberFormatException numberFormatException) {
 				System.out.println("\n"+ASTERISKS);
-				System.err.println("*Exception*\n" + numberFormatException);
-
+				
+				//System.err.println("*Exception*\n" + numberFormatException);
+				
+				option = 0;
 			} 
 			
 			exit = runOption(option);
 		} while (!exit);
+		
 		
 	}
 	

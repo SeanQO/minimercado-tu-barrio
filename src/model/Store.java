@@ -20,7 +20,7 @@ public class Store {
 		String message = "\n";
 		Person person = new Person(document, idNumber);
 		
-		totalVisitors ++;
+		totalVisitors ++;	
 		if (document.getAge()) {
 			if ( picoYCedula(idNumber) ) {
 				entries.add(person);
@@ -58,8 +58,5 @@ public class Store {
 		return picoYCedula;
 	}
 	
-	public String getRegisteredPerson(long idNumber ) {
-		return "";
-	}
 	
 }
